@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Profile Card</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    
+    <style>
+        .copy-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            display: inline-block;
+            margin-left: 10px;
+            align-self: center;
+        }
+
+        .copy-btn:hover {
+            background-color: #555;
+        }
+
+        .email-container {
+            display: flex;
+            align-items: center;
+            background-color: #f0f0f0;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+        }
+
+        .email-container span {
+            white-space: nowrap;
+        }
+
+        .copy-btn-container {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <div class="image">
+            <img src="ENG.jfif" alt="" class="profile-img">
+        </div>
+
+        <div class="text-data">
+            <span class="name">Abdullah Alotaibi</span>
+            <span class="job">Computer Engineer</span>
+        </div>
+        
+        <div class="media-buttons">
+            <a href="https://www.instagram.com/thereallabdullah?igsh=MXkwcHV0b2RiYzl4Ng==" style="background: #e1306c;" class="link">
+                <i class='bx bxl-instagram'></i>
+            </a>
+            <a href="https://x.com/2byabdullah?s=21&t=4PjHvsFA6GLWKJdIHfdL7w" style="background: #000000;" class="link">
+                <i class="fa-brands fa-x-twitter" style="color: #fefefe;"></i>
+            </a>
+        </div>
+
+        <div class="copy-btn-container">
+            <div class="email-container">
+                <span id="email">aalialotaibi22@gmail.com</span>
+                <button class="copy-btn" onclick="copyEmail()">📋</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyEmail() {
+            var emailText = document.getElementById("email").innerText;
+            var tempInput = document.createElement("input");
+            document.body.appendChild(tempInput);
+            tempInput.value = emailText;
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            alert("Email copied: " + emailText);
+        }
+    </script>
+</body>
+</html>
